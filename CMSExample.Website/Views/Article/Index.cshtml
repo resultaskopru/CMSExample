@@ -1,0 +1,90 @@
+﻿@model IList<Article>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product and Article List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F4F4F4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 2.5rem;
+            margin: 30px 0;
+            background: linear-gradient(to right, #800080, #0074D9);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 0 10%;
+            margin-bottom: 50px;
+        }
+
+        .item {
+            border: none;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px;
+            width: 280px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+            .item:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .item img {
+                width: 100%;
+                height: auto;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .item h3 {
+                margin: 15px 0 10px;
+                font-size: 1.5rem;
+                color: #800080;
+            }
+
+            .item p {
+                margin: 10px 0;
+                color: #666;
+            }
+    </style>
+</head>
+<body>
+    <h1>Articles</h1>
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <img src="@item.ImageUrl" alt="Blog">
+                <h3>Blog</h3>
+                <p>@item.Description</p>
+            </div>
+
+        }
+
+    </div>
+
+    <div id="error-message"></div>
+
+</body>
+</html>
